@@ -8,3 +8,8 @@ This repo contains the starter project and result project for the 3 parts Compos
 [source code](https://github.com/nodes-ios/Compositional-Layout)
 ## 📄 License
 Available under the MIT license. See the [LICENSE](https://github.com/nodes-ios/Compositional-Layout/blob/master/LICENSE) file for more info.
+
+### objectives
+
+- fix aspect ratio of collectionView
+- fix aspect ratio of section 1 cells to 1

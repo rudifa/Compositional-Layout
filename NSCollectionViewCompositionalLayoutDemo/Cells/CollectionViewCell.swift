@@ -9,26 +9,28 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
-    
     let label = UILabel()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        layer.cornerRadius = 5
-        
+
+        layer.cornerRadius = 10
+
         label.textAlignment = .center
-        
+        label.font = label.font.withSize(14)
+
         addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: topAnchor),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

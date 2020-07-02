@@ -18,6 +18,7 @@
 		42B40F2722F0822200C9E4F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B40F2522F0822200C9E4F7 /* LaunchScreen.storyboard */; };
 		42C3C1C522FABF5000582CC1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C3C1C422FABF5000582CC1 /* CollectionViewCell.swift */; };
 		9DB06D3024AE6A89000E3F26 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9DB06D2F24AE6A89000E3F26 /* README.md */; };
+		9DB06D3524AE786F000E3F26 /* DebugUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB06D3424AE786F000E3F26 /* DebugUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		42B40F2822F0822200C9E4F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42C3C1C422FABF5000582CC1 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		9DB06D2F24AE6A89000E3F26 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9DB06D3424AE786F000E3F26 /* DebugUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,15 +79,12 @@
 		42B40F1922F0822000C9E4F7 /* NSCollectionViewCompositionalLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
-				4258F8C622FC1D190093FE6B /* Supplementary Views */,
-				42C3C1C322FABF4000582CC1 /* Cells */,
-				42B40F1A22F0822000C9E4F7 /* AppDelegate.swift */,
-				42B40F1C22F0822000C9E4F7 /* SceneDelegate.swift */,
-				42B40F1E22F0822000C9E4F7 /* ViewController.swift */,
-				42B40F2022F0822000C9E4F7 /* Main.storyboard */,
-				42B40F2322F0822200C9E4F7 /* Assets.xcassets */,
-				42B40F2522F0822200C9E4F7 /* LaunchScreen.storyboard */,
 				42B40F2822F0822200C9E4F7 /* Info.plist */,
+				9DB06D3224AE7807000E3F26 /* App */,
+				9DB06D3324AE7842000E3F26 /* Controller */,
+				42C3C1C322FABF4000582CC1 /* Cells */,
+				4258F8C622FC1D190093FE6B /* Supplementary Views */,
+				9DB06D3124AE77C0000E3F26 /* Util */,
 			);
 			path = NSCollectionViewCompositionalLayoutDemo;
 			sourceTree = "<group>";
@@ -96,6 +95,34 @@
 				42C3C1C422FABF5000582CC1 /* CollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9DB06D3124AE77C0000E3F26 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				9DB06D3424AE786F000E3F26 /* DebugUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		9DB06D3224AE7807000E3F26 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				42B40F1A22F0822000C9E4F7 /* AppDelegate.swift */,
+				42B40F1C22F0822000C9E4F7 /* SceneDelegate.swift */,
+				42B40F2022F0822000C9E4F7 /* Main.storyboard */,
+				42B40F2322F0822200C9E4F7 /* Assets.xcassets */,
+				42B40F2522F0822200C9E4F7 /* LaunchScreen.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9DB06D3324AE7842000E3F26 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42B40F1E22F0822000C9E4F7 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +204,7 @@
 				42B40F1D22F0822000C9E4F7 /* SceneDelegate.swift in Sources */,
 				4258F8CA22FC4DD70093FE6B /* HeaderSupplementaryView.swift in Sources */,
 				4258F8CC22FC5B5D0093FE6B /* BackgroundDecorationView.swift in Sources */,
+				9DB06D3524AE786F000E3F26 /* DebugUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
