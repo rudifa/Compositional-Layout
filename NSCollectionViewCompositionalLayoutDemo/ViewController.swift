@@ -50,6 +50,7 @@ class ViewController: UIViewController {
     }
     
     private func makeLayout() -> UICollectionViewLayout {
+        return UICollectionViewLayout()
     }
     
 }

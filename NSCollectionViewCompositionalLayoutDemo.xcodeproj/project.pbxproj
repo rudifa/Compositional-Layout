@@ -17,6 +17,7 @@
 		42B40F2422F0822200C9E4F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B40F2322F0822200C9E4F7 /* Assets.xcassets */; };
 		42B40F2722F0822200C9E4F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B40F2522F0822200C9E4F7 /* LaunchScreen.storyboard */; };
 		42C3C1C522FABF5000582CC1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C3C1C422FABF5000582CC1 /* CollectionViewCell.swift */; };
+		9DB06D3024AE6A89000E3F26 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9DB06D2F24AE6A89000E3F26 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		42B40F2622F0822200C9E4F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42B40F2822F0822200C9E4F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42C3C1C422FABF5000582CC1 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		9DB06D2F24AE6A89000E3F26 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		42B40F0E22F0822000C9E4F7 = {
 			isa = PBXGroup;
 			children = (
+				9DB06D2F24AE6A89000E3F26 /* README.md */,
 				42B40F1922F0822000C9E4F7 /* NSCollectionViewCompositionalLayoutDemo */,
 				42B40F1822F0822000C9E4F7 /* Products */,
 			);
@@ -155,6 +158,7 @@
 			files = (
 				42B40F2722F0822200C9E4F7 /* LaunchScreen.storyboard in Resources */,
 				42B40F2422F0822200C9E4F7 /* Assets.xcassets in Resources */,
+				9DB06D3024AE6A89000E3F26 /* README.md in Resources */,
 				42B40F2222F0822000C9E4F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
