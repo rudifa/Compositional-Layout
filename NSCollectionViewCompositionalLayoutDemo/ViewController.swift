@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     }
 
     func updateCollectionView() {
-        collectionView.setCollectionViewLayout(makeLayout(), animated: true)
+        collectionView.setCollectionViewLayout(makeLayout(itemCount: itemCount), animated: true)
     }
 
     override func viewDidLoad() {
@@ -84,7 +84,7 @@ class ViewController: UIViewController {
 
     private func makeCollectionView() {
         collectionView = UICollectionView(frame: .zero,
-                                          collectionViewLayout: makeLayout())
+                                          collectionViewLayout: makeLayout(itemCount: itemCount))
         collectionView.backgroundColor = .lightGray
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -102,11 +102,21 @@ class ViewController: UIViewController {
                                 forCellWithReuseIdentifier: "CollectionViewCell")
     }
 
-    private func makeLayout() -> UICollectionViewLayout {
-        printClassAndFunc()
+    private func makeLayout(itemCount: Int) -> UICollectionViewLayout {
+        // layout constants
+        let itemWidth = CGFloat(76)
+        let itemHeight = CGFloat(76)
+        let itemSpacing = CGFloat(6)
+        let contentWidth = CGFloat(250)
 
-        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(76),
-                                              heightDimension: .absolute(76))
+        let currentContentWidth = CGFloat(itemCount) * (itemWidth + itemSpacing)
+        let leadingOffset = (contentWidth - currentContentWidth) / 2.0
+        let leadingInset = leadingOffset > 0 ? leadingOffset : itemSpacing
+
+        printClassAndFunc(info: "itemCount= \(itemCount), leadingInset= \(leadingInset)")
+
+        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(itemWidth),
+                                              heightDimension: .absolute(itemHeight))
 
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
@@ -114,20 +124,10 @@ class ViewController: UIViewController {
                                                        subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 5
-
-        var leading = CGFloat(5)
-        switch itemCount {
-        case 1:
-            leading += 76
-        case 2:
-            leading += 38
-        default:
-            break
-        }
+        section.interGroupSpacing = itemSpacing
 
         section.contentInsets = NSDirectionalEdgeInsets(top: 10,
-                                                        leading: leading,
+                                                        leading: leadingInset,
                                                         bottom: 5,
                                                         trailing: 5)
 
