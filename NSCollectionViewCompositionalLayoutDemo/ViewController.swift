@@ -49,21 +49,26 @@ class ViewController: UIViewController {
     }()
 
     @objc func minusButtonTap(_: UIButton) {
-        // printClassAndFunc()
         if itemCount > 0 {
             itemCount -= 1
-            collectionView.reloadData()
+            updateCollectionView()
         }
     }
 
     @objc func plusButtonTap(_: UIButton) {
-        // printClassAndFunc()
         itemCount += 1
-        collectionView.reloadData()
+        updateCollectionView()
+    }
+
+    func updateCollectionView() {
+        collectionView.setCollectionViewLayout(makeLayout(), animated: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        printClassAndFunc()
+
         makeCollectionView()
 
         view.addSubview(plusButton)
@@ -82,6 +87,7 @@ class ViewController: UIViewController {
                                           collectionViewLayout: makeLayout())
         collectionView.backgroundColor = .lightGray
         collectionView.dataSource = self
+        collectionView.delegate = self
         view.addSubview(collectionView)
 
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -97,6 +103,8 @@ class ViewController: UIViewController {
     }
 
     private func makeLayout() -> UICollectionViewLayout {
+        printClassAndFunc()
+
         let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(76),
                                               heightDimension: .absolute(76))
 
@@ -107,8 +115,19 @@ class ViewController: UIViewController {
 
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 5
+
+        var leading = CGFloat(5)
+        switch itemCount {
+        case 1:
+            leading += 76
+        case 2:
+            leading += 38
+        default:
+            break
+        }
+
         section.contentInsets = NSDirectionalEdgeInsets(top: 10,
-                                                        leading: 5,
+                                                        leading: leading,
                                                         bottom: 5,
                                                         trailing: 5)
 
@@ -136,4 +155,28 @@ extension ViewController: UICollectionViewDataSource {
 
         return cell
     }
+}
+
+extension ViewController: UICollectionViewDelegate { // } UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        insetForSectionAt section: Int) -> UIEdgeInsets {
+//        printClassAndFunc()
+//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
+//        let size = collectionView.frame.size
+//        printClassAndFunc(info: "proposedContentOffset= \(proposedContentOffset) frame.size= \(size)")
+//
+//        var contentOffset = proposedContentOffset
+//        switch itemCount {
+//        case 1:
+//            contentOffset.x += 76
+//        default:
+//            break
+//        }
+//        return contentOffset
+//    }
 }
