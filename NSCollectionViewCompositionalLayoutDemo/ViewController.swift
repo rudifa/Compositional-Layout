@@ -42,27 +42,17 @@ class ViewController: UIViewController {
 
         collectionView.register(CollectionViewCell.self,
                                 forCellWithReuseIdentifier: "CollectionViewCell")
-        collectionView.register(BadgeSupplementaryView.self,
-                                forSupplementaryViewOfKind: "badge",
-                                withReuseIdentifier: "BadgeSupplementaryView")
-        collectionView.register(HeaderSupplementaryView.self,
-                                forSupplementaryViewOfKind: "header",
-                                withReuseIdentifier: "HeaderSupplementaryView")
     }
 
     private func makeLayout() -> UICollectionViewLayout {
-        // 1
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(50),
                                               heightDimension: .absolute(50))
 
-        // 2
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-        // 3
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize,
                                                        subitems: [item])
 
-        // 4
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 5
         section.contentInsets = NSDirectionalEdgeInsets(top: 0,
@@ -77,11 +67,11 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 16
+        return 3
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -91,27 +81,5 @@ extension ViewController: UICollectionViewDataSource {
         cell.backgroundColor = sectionColors[indexPath.section]
 
         return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case "header":
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                             withReuseIdentifier: "HeaderSupplementaryView",
-                                                                             for: indexPath) as! HeaderSupplementaryView
-            headerView.label.text = "This is a header"
-
-            return headerView
-        case "badge":
-            let badgeView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                            withReuseIdentifier: "BadgeSupplementaryView",
-                                                                            for: indexPath) as! BadgeSupplementaryView
-            badgeView.label.text = indexPath.section.description
-
-            return badgeView
-        default:
-            print(kind)
-            return UICollectionReusableView()
-        }
     }
 }
